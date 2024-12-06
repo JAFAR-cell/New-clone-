@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="explore style.css">
+   
+    <title>Twitter Clone</title>
+</head>
+<body>
+    <header>
+        <h1>Twitter Clone</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Messages</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <h2>Trending</h2>
+            <ul>
+                <li>THE BIG FIGHT!</li>
+                <li>THE BEEF IS OVER!</li>
+                <li>OPTIMUS BOT!</li>
+            </ul>
+        </div>
+        <div class="feed">
+            <h2>Feed</h2>
+            <div id="tweets-container">
+                <div class="tweet">
+                    <h3>THE BIG FIGHT!</h3>
+                    <p>Jake Paul vs. Mike Tyson is an upcoming professional boxing match between YouTuber-turned-professional boxer Jake Paul and former undisputed heavyweight world champion Mike Tyson. The bout is scheduled for November 15, 2024 at the AT&T Stadium in Arlington, Texas. The event will be streamed globally on Netflix.
+                        Originally, the bout was scheduled to take place on July 20, but was postponed due to Tyson suffering an ulcer flare-up aboard a plane.</p>
+                    <span class="timestamp">2h ago</span>
+                </div>
+                <div class="tweet">
+                    <h3>THE BEEF IS OVER</h3>
+                    <p>The Drake and Kendrick beef is over…
+                        New & Trending
+                        I know it’s presumptuous to say it’s done but hear me out. Drake has been saying in his bars how he’s going on vacation and doesn’t want to diss Kendrick anymore. All the heat is on Drake right now especially after releasing the subpar THP6 to defend against the allegations which a lot of folks believe. Plus I don’t think there’s anymore tea for Drake to spill considering he’s recycling talking points. It’s a 0 sum game for him to continue so hes going to stay out of the spotlight logically until he has an album or hit single ready.
+                        
+                        Kendrick obviously from news sources says he has more bars for Drake however I don’t think he’ll release them for a couple reasons. The first being most everyone already thinks Kendrick won anyway it’d be superfluous if he dropped again. Second, Drakes house was shot at recently and while I don’t think Kendrick had anything to do with it if he continues dropping disses and the violence gets worse you could make the argument he’s just inciting violence on Drake at a point. Third, rumors are that Universal Music Group is involved now saying for him to squash the beef with Drake and to say he’s not a pedo. If he continues the beef that can have damning consequences to his own career and possibly a lawsuit. He could still drop but there’s more cons than pros in doing so.
+                        
+                        I’m not mad about it though we got a lot of jams from both camps and honestly probably the most memorable rap beef in recent memory. I can’t imagine we’ll ever see anything like it again.</p>
+                    <span class="timestamp">1h ago</span>
+                </div>
+                <div class="tweet">
+                    <h3>OPTIMUS BOT!</h3>
+                    <p>Optimus (named after the Transformers character with the same name), also known as Tesla Bot, is a general-purpose robotic humanoid under development by Tesla, Inc. It was announced at the company's Artificial Intelligence (AI) Day event on August 19, 2021, and a prototype was shown in 2022. CEO Elon Musk stated in 2022 that he thinks Optimus "has the potential to be more significant than 
+                        Tesla's vehicle business over time." Media and expert opinions based on corporate showcases have been mixed.</p>
+                    <span class="timestamp">30m ago</span>
+                </div>
+            </div>
+            <div class="tweet-form">
+                <input type="text" id="tweet-input" placeholder="What's happening?" />
+                <button id="tweet-button">Tweet</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Twitter Clone</p>
+    </footer>
+
+    <script>
+        document.getElementById('tweet-button').addEventListener('click', function() {
+            const tweetInput = document.getElementById('tweet-input');
+            const tweetContent = tweetInput.value;
+
+            if (tweetContent.trim() !== '') {
+                const tweetsContainer = document.getElementById('tweets-container');
+
+                const newTweet = document.createElement('div');
+                newTweet.classList.add('tweet');
+
+                const userName = 'You'; // This could be dynamically set based on the logged-in user
+                const timestamp = 'Just now'; // You could implement a more dynamic timestamp if desired
+
+                newTweet.innerHTML = `<h3>${userName}</h3><p>${tweetContent}</p><span class="timestamp">${timestamp}</span>`;
+                tweetsContainer.prepend(newTweet); // Add the new tweet at the top of the feed
+
+                tweetInput.value = ''; // Clear the input field
+            } else {
+                alert('Please enter a tweet before posting.');
+            }
+        });
+    </script>
+</body>
+</html>
